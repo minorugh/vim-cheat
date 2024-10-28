@@ -1,40 +1,369 @@
 <!DOCTYPE html>
 <!-- saved from url=(0029)https://vim.rtorr.com/lang/ja -->
 <html lang="ja"><head><meta http-equiv="Content-Type" content="text/html; charset=UTF-8">
-  
   <meta http-equiv="x-ua-compatible" content="ie=edge">
   <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
   <title>Vim Cheat Sheet</title>
-  <link rel="shortcut icon" href="https://vim.rtorr.com/images/icons/icon-48x48.png">
-  <link rel="manifest" href="https://vim.rtorr.com/manifest.webmanifest">
   <meta name="theme-color" content="#FA4949">
   <meta http-equiv="cache-control" content="max-age=600">
-  <meta name="description" content="Explore vim.rtorr.com for an extensive Vim cheat sheet, offering clear, concise commands and shortcuts for Vim users. Whether you&#39;re a beginner or an experienced developer, find tips and tricks to enhance your coding efficiency in Vim.">
-  <link rel="apple-touch-icon" sizes="48x48" href="https://vim.rtorr.com/images/icons/icon-48x48.png">
-  <link rel="apple-touch-icon" sizes="72x72" href="https://vim.rtorr.com/images/icons/icon-72x72.png">
-  <link rel="apple-touch-icon" sizes="96x96" href="https://vim.rtorr.com/images/icons/icon-96x96.png">
-  <link rel="apple-touch-icon" sizes="144x144" href="https://vim.rtorr.com/images/icons/icon-144x144.png">
-  <link rel="apple-touch-icon" sizes="192x192" href="https://vim.rtorr.com/images/icons/icon-192x192.png">
-  <link rel="apple-touch-icon" sizes="256x256" href="https://vim.rtorr.com/images/icons/icon-256x256.png">
-  <link rel="apple-touch-icon" sizes="384x384" href="https://vim.rtorr.com/images/icons/icon-384x384.png">
-  <link rel="apple-touch-icon" sizes="512x512" href="https://vim.rtorr.com/images/icons/icon-512x512.png">
-  <link rel="stylesheet" href="./Vim Cheat Sheet_files/style.css">
 </head>
+<style>
+  /*Layout*/
 
-<body class="vsc-initialized">
-  <div class="sponsor">
-    <div class="container">
-      <span>
-        <a target="_blank" href="https://www.warp.dev/">
-          <div class="sponsor-logo-container">
-            <span>Sponsor</span>
-            <img class="sponsor-logo" src="./Vim Cheat Sheet_files/warp-logo.svg" alt="Warp logo">
-          </div>
-          <div class="sponsor-tagline"><span>A new terminal focused on developer productivity</span></div>
-      </a></span><a target="_blank" href="https://www.warp.dev/">
-      </a>
-    </div>
-  </div>
+  * {
+  -webkit-box-sizing: border-box;
+  -moz-box-sizing: border-box;
+  box-sizing: border-box;
+  }
+
+  .grid-block {
+  clear: both;
+  letter-spacing: -0.31em;
+  display: -webkit-flex;
+  -webkit-flex-flow: row wrap;
+  display: -ms-flexbox;
+  -ms-flex-flow: row wrap;
+  overflow: hidden;
+  text-rendering: optimizespeed;
+  width: 100%;
+  }
+
+  .grid-block,
+  .grid-1,
+  .grid-lg-1-2,
+  .grid-lg-1-3 {
+  display: inline-block;
+  float: left;
+  letter-spacing: normal;
+  padding: 0px 10px;
+  vertical-align: top;
+  word-spacing: normal;
+  text-rendering: auto;
+  width: 100%;
+  zoom: 1;
+  }
+
+  /*-----------------*/
+
+  body {
+  background-color: #fff;
+  color: #000;
+  font-family: Georgia, serif;
+  font-size: 16px;
+  margin: 0;
+  }
+
+  h1,
+  h2,
+  h3,
+  h4,
+  h5,
+  h6,
+  .h1,
+  .h2,
+  .h3,
+  .h4,
+  .h5,
+  .h6 {
+  color: inherit;
+  font-family: "Helvetica Neue", Helvetica, Arial, sans-serif;
+  font-weight: 500;
+  letter-spacing: normal;
+  line-height: 1.1;
+  margin-top: 20px;
+  margin-bottom: 10px;
+  }
+
+  h1 {
+  font-size: 45px;
+  margin-bottom: 0px;
+  margin-top: 30px;
+  }
+
+  h1 a {
+  color: #fa4949;
+  }
+
+  h2 {
+  font-family: "Helvetica Neue", Helvetica, Arial, sans-serif;
+  font-size: 24px;
+  }
+
+  a {
+  color: #1a0dab;
+  text-decoration: none;
+  }
+
+  a:hover {
+  text-decoration: underline;
+  }
+
+  p {
+  margin: 12px 0;
+  line-height: 20px;
+  letter-spacing: normal;
+  }
+
+  ul {
+  padding: 0;
+  }
+
+  li {
+  border-bottom: 1px dashed #e0e0e0;
+  line-height: 1.55;
+  list-style-type: none;
+  padding: 7px 0;
+  }
+
+  kbd {
+  background-color: #eee;
+  color: #000;
+  border-radius: 0;
+  box-shadow: none;
+  font-family: "Inconsolata", monospace;
+  font-size: 1em;
+  font-weight: bold;
+  padding: 4px;
+  }
+
+  .container {
+  background: #fff;
+  margin: 0 auto;
+  width: 100%;
+  max-width: 1170px;
+  }
+
+  .well {
+  background: #f8f8f8;
+  border: none;
+  border-radius: 0;
+  -webkit-box-shadow: none;
+  box-shadow: none;
+  min-height: 20px;
+  margin-bottom: 20px;
+  padding: 19px;
+  }
+
+  .link-to-repo {
+  margin: 20px 0;
+  text-align: center;
+  }
+
+  .link-to-repo p {
+  margin-bottom: inherit;
+  }
+
+  .ja {
+  font-size: 13px;
+  }
+
+  .ja h2 {
+  font-size: 20px;
+  }
+
+  .ja kbd {
+  font-size: 16px;
+  }
+
+  .box {
+  background: #f8f8f8;
+  border: 1px solid #e7e7e7;
+  margin: 10px 0;
+  width: 100%;
+  }
+
+  .box .grid-block {
+  padding: 0;
+  }
+
+  .box-header {
+  background: #ebebeb;
+  min-height: 30px;
+  padding: 10px;
+  }
+
+  .box-header h2 {
+  font-size: 16px;
+  margin: 5px 0;
+  }
+
+  .box-body {
+  font-size: 14px;
+  display: block;
+  clear: both;
+  overflow: hidden;
+  padding: 0 10px;
+  padding-bottom: 20px;
+  }
+
+  .box-body li {
+  border-bottom: none;
+  line-height: inherit;
+  list-style-type: none;
+  padding: 7px 7px;
+  }
+
+  .sponsor {
+  width: 100%;
+  background: #250343;
+  border-bottom: 1px solid #300456;
+  }
+
+  .sponsor .container {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  background: #250343;
+  }
+
+  .sponsor-logo-container,
+  .sponsor-tagline {
+  display: flex;
+  padding: 20px 10px;
+  align-items: center;
+  justify-content: center;
+  position: relative;
+  }
+
+  .sponsor-logo-container span {
+  display: inline;
+  position: absolute;
+  font-size: 10px;
+  top: 5px;
+  left: 10px;
+  }
+
+  .sponsor-logo {
+  display: inline-block;
+  width: 107px;
+  height: 25px;
+  background-image: url("/images/svg/warp-logo.svg");
+  background-position: 50% 50%;
+  background-size: auto;
+  background-repeat: no-repeat;
+  }
+
+  .sponsor a,
+  .sponsor a:hover,
+  .sponsor a:visited {
+  display: flex;
+  }
+
+  .sponsor span {
+  color: #c3e7fb;
+  text-decoration: none;
+  }
+
+  @media print {
+  html,
+  body {
+  height: 90%;
+  }
+
+  body {
+  line-height: 1.3;
+  font-size: 10px;
+  }
+
+  h1 {
+  font-size: 20px;
+  margin-left: 0;
+  margin-bottom: 8px;
+  margin-top: 0;
+  }
+
+  h2 {
+  font-size: 10px;
+  margin-bottom: -10px;
+  margin-top: 0;
+  line-height: 10px;
+  }
+
+  #footer,
+  .link-to-repo {
+  height: 0px;
+  display: none;
+  }
+
+  .commands-container {
+  clear: both;
+  overflow: hidden;
+  }
+
+  .commands-container > .grid-block:first-child {
+  width: 60%;
+  }
+
+  .commands-container > .grid-block:last-child .grid-lg-1-3 {
+  width: 50%;
+  }
+
+  .grid-block {
+  clear: none;
+  float: left;
+  display: inline-block;
+  overflow: hidden;
+  width: 40%;
+  }
+
+  .grid-1 {
+  padding: 0;
+  margin: 0;
+  }
+
+  .grid-lg-1-3 {
+  display: inline-block;
+  float: left;
+  letter-spacing: normal;
+  padding: 0;
+  word-spacing: normal;
+  text-rendering: auto;
+  width: 33.3333%;
+  zoom: 1;
+  }
+
+  li {
+  line-height: initial;
+  padding: 4px 5px;
+  }
+
+  kbd {
+  color: #000;
+  font-size: 12px;
+  padding: 0;
+  }
+
+  .well {
+  height: 0px;
+  display: none;
+  }
+
+  .sponsor {
+  display: none;
+  }
+  }
+
+  @page {
+  margin: 0.5cm;
+  }
+
+  /*Large*/
+  @media screen and (min-width: 64em) {
+  .sponsor .container {
+  justify-content: right;
+  }
+
+  .grid-lg-1-2 {
+  width: 50%;
+  }
+
+  .grid-lg-1-3 {
+  width: 33.3333%;
+  }
+  }
+</style>
+
+<body>
   <div class="container">
     <div class="grid-block">
       <div class="grid-1">
@@ -551,17 +880,15 @@
           <li>
             <kbd>:3,5d</kbd> - delete lines starting from 3 to 5
           </li>
-        </ul>
         <div class="well">
           <strong>Tip</strong> You can also use the following characters to specify the range: <br>
           e.g. <br>
           <p>
             <kbd>:.,$d</kbd> - From the current line to the end of the file <br>
             <kbd>:.,1d</kbd> - From the current line to the beginning of the file <br>
-            <kbd>:10,1d</kbd> - From the 10th line to the beginning of the file <br>
+            <kbd>:10,$d</kbd> - From the 10th line to the beginning of the file <br>
           </p>
         </div>
-        <ul>
           <li>
             <kbd>:g/{pattern}/d</kbd> - delete all lines containing pattern
           </li>
@@ -801,9 +1128,9 @@
             <kbd>Ctrl</kbd> + <kbd>wK</kbd> - 現在のウィンドウの幅を最大化して最も上側に移動
           </li>
         </ul>
-        
-        
-        
+
+
+
       </div>
       <div class="grid-lg-1-2">
         <h2>差分</h2>
@@ -865,191 +1192,6 @@
   </div>
 </div>
 </main>
-      <div>
-        <div id="footer" class="grid-block">
-          <div class="box">
-            <div class="box-header">
-              <h2>Additional Resources</h2>
-            </div>
-            <div class="box-body">
-              <div class="grid-block">
-                <div class="grid-lg-1-2">
-                  <h3 id="languages">Languages</h3>
-                  <ul>
-                    <li>
-                      <a href="https://vim.rtorr.com/lang/ar" lang="ar">العربية</a>
-                    </li>
-                    <li>
-                      <a href="https://vim.rtorr.com/lang/bn" lang="bn">বাংলা</a>
-                    </li>
-                    <li>
-                      <a href="https://vim.rtorr.com/lang/ca" lang="ca">Català</a>
-                    </li>
-                    <li>
-                      <a href="https://vim.rtorr.com/lang/cs" lang="cs">Čeština</a>
-                    </li>
-                    <li>
-                      <a href="https://vim.rtorr.com/lang/da_DK" lang="da">Dansk</a>
-                    </li>
-                    <li>
-                      <a href="https://vim.rtorr.com/lang/de_de" lang="de">Deutsch</a>
-                    </li>
-                    <li>
-                      <a href="https://vim.rtorr.com/lang/el_gr" lang="el">Ελληνικά</a>
-                    </li>
-                    <li>
-                      <a href="https://vim.rtorr.com/lang/en_us" lang="en">English</a>
-                    </li>
-                    <li>
-                      <a href="https://vim.rtorr.com/lang/eo" lang="eo">Esperanto</a>
-                    </li>
-                    <li>
-                      <a href="https://vim.rtorr.com/lang/es_es" lang="es">Español</a>
-                    </li>
-                    <li>
-                      <a href="https://vim.rtorr.com/lang/fa_ir" lang="fa">Persian</a>
-                    </li>
-                    <li>
-                      <a href="https://vim.rtorr.com/lang/fi" lang="fi">Suomi</a>
-                    </li>
-                    <li>
-                      <a href="https://vim.rtorr.com/lang/fr_fr" lang="fr">Français</a>
-                    </li>
-                    <li>
-                      <a href="https://vim.rtorr.com/lang/he" lang="he">עברית</a>
-                    </li>
-                    <li>
-                      <a href="https://vim.rtorr.com/lang/hr" lang="hr">Hrvatski</a>
-                    </li>
-                    <li>
-                      <a href="https://vim.rtorr.com/lang/hu_hu" lang="hu">Magyar</a>
-                    </li>
-                    <li>
-                      <a href="https://vim.rtorr.com/lang/id" lang="id">Bahasa Indonesia</a>
-                    </li>
-                    <li>
-                      <a href="https://vim.rtorr.com/lang/it" lang="it">Italiano</a>
-                    </li>
-                    <li>
-                      <a href="https://vim.rtorr.com/lang/ja" lang="ja">日本語</a>
-                    </li>
-                    <li>
-                      <a href="https://vim.rtorr.com/lang/ko" lang="ko">한국어</a>
-                    </li>
-                    <li>
-                      <a href="https://vim.rtorr.com/lang/my" lang="my">မြန်မာ</a>
-                    </li>
-                    <li>
-                      <a href="https://vim.rtorr.com/lang/nl_nl" lang="nl">Nederlands</a>
-                    </li>
-                    <li>
-                      <a href="https://vim.rtorr.com/lang/no_nb" lang="no">Norsk</a>
-                    </li>
-                    <li>
-                      <a href="https://vim.rtorr.com/lang/pl_pl" lang="pl">Polski</a>
-                    </li>
-                    <li>
-                      <a href="https://vim.rtorr.com/lang/pt_br" lang="pt">Português - Brasil</a>
-                    </li>
-                    <li>
-                      <a href="https://vim.rtorr.com/lang/pt_pt" lang="pt">Português - Portugal</a>
-                    </li>
-                    <li>
-                      <a href="https://vim.rtorr.com/lang/ro" lang="ro">Romana</a>
-                    </li>
-                    <li>
-                      <a href="https://vim.rtorr.com/lang/ru" lang="ru">Русский</a>
-                    </li>
-                    <li>
-                      <a href="https://vim.rtorr.com/lang/si_lk" lang="si">සිංහල</a>
-                    </li>
-                    <li>
-                      <a href="https://vim.rtorr.com/lang/sk" lang="sk">Slovenčina</a>
-                    </li>
-                    <li>
-                      <a href="https://vim.rtorr.com/lang/sv" lang="sv">Svenska</a>
-                    </li>
-                    <li>
-                      <a href="https://vim.rtorr.com/lang/th" lang="th">ภาษาไทย</a>
-                    </li>
-                    <li>
-                      <a href="https://vim.rtorr.com/lang/tr" lang="tr">Türkçe</a>
-                    </li>
-                    <li>
-                      <a href="https://vim.rtorr.com/lang/uk" lang="uk">Українська</a>
-                    </li>
-                    <li>
-                      <a href="https://vim.rtorr.com/lang/vi_vn" lang="vi">Tiếng Việt</a>
-                    </li>
-                    <li>
-                      <a href="https://vim.rtorr.com/lang/zh_cn" lang="zh">简体中文</a>
-                    </li>
-                    <li>
-                      <a href="https://vim.rtorr.com/lang/zh_tw" lang="zh">中文 (台灣)</a>
-                    </li>
-                  </ul>                </div>
-                <div class="grid-lg-1-2">
-                  <h3>About the vim cheat sheet</h3>
-                  <p>
-                    This project aims to be one of the most accessible vim guides available. We
-                    made sure to support mobile, desktop, and other
-                    <a href="https://vim.rtorr.com/lang/ja#languages" aria-label="Jump to languages section">languages</a>.
-                  </p>
-                  <p>
-                    <a target="_blank" href="https://github.com/sponsors/rtorr" aria-label="Sponsor this project on GitHub">❤️ Please consider sponsoring this
-                      project ❤️</a>!
-                  </p>
-                  <p>
-                    You can read about how to contribute (and help improve) by viewing our
-                    <a href="https://github.com/rtorr/vim-cheat-sheet/blob/master/README.md" target="_blank" rel="noopener noreferrer" aria-label="Read the README on GitHub">
-                      README
-                    </a>
-                    . There you can see how to set up this project, or how to contribute a new
-                    language. Here is a big thank you to our
-                    <a href="https://github.com/rtorr/vim-cheat-sheet/graphs/contributors" target="_blank" rel="noopener noreferrer" aria-label="View project contributors on GitHub">
-                      contributors!
-                    </a>
-                  </p>
-                  <p>
-                    This project is licensed under
-                    <a href="https://github.com/rtorr/vim-cheat-sheet/blob/master/License.txt" target="_blank" rel="noopener noreferrer" aria-label="View the MIT License for this project">
-                      The MIT License (MIT)
-                    </a>
-                    .
-                  </p>
-                  <h3>Other places to find this document</h3>
-                  <p>
-                    This document was embedded in
-                    <a href="https://duckduckgo.com/?q=vim+cheat+sheet" target="_blank" rel="noopener noreferrer" aria-label="Search for this document on DuckDuckGo">
-                      DuckDuckGo
-                    </a>
-                    .
-                  </p>
-                  <h3>More resources</h3>
-                  <p>
-                    Interactive Vim tutorial:
-                    <a href="https://openvim.com/" target="_blank" rel="noopener noreferrer" aria-label="Visit Open Vim for an interactive Vim tutorial">
-                      Open Vim
-                    </a>
-                  </p>
-                  <p>
-                    Vim quick reference from Vim help pages:
-                    <a href="https://vimhelp.org/quickref.txt.html" target="_blank" rel="noopener noreferrer" aria-label="Access Vim quick reference"> 
-                      quickref.txt
-                    </a>
-                  </p>
-                  <p>
-                    List of all Vim ex (<kbd>:</kbd>) commands:
-                    <a href="https://vimhelp.org/index.txt.html#ex-cmd-index" target="_blank" rel="noopener noreferrer" aria-label="View list of all Vim ex commands">
-                      ex-cmd-index
-                    </a>
-                  </p>
-                </div>
-              </div>
-            </div>
-          </div>
-        </div>
-
         <div class="grid-block link-to-repo">
           <p>
             Checkout the source on
@@ -1057,20 +1199,20 @@
               Github
             </a>
           </p>
-          <p>version: 3.2.0</p>
+          <p>version: 3.1.1</p>
         </div>
       </div>
     </div>
   </div>
   <script>
-    window.CACHE_NAME = "3.2.0";
+    window.CACHE_NAME = "3.1.1";
 
     if ('serviceWorker' in navigator) {
       window.addEventListener('load', function () {
-        navigator.serviceWorker.register('/javascripts/sw.js?version=3.2.0');
+        navigator.serviceWorker.register('/javascripts/sw.js?version=3.1.1');
       });
     }
   </script>
 
 
-<deepl-input-controller><template shadowrootmode="open"><link rel="stylesheet" href="chrome-extension://cofdbpoegempjloogbagkncekinflcnj/build/content.css"><div dir="ltr" style="visibility: initial !important;"><div class="dl-input-translation-container svelte-95aucy"><div></div></div></div></template></deepl-input-controller></body></html>
+</body></html>
